@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-g">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BellaPele - Clínica Estética Avançada</title>
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display (para títulos) e Inter (para o corpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Configuração customizada do Tailwind para adicionar as fontes -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+                        'serif': ['Playfair Display', 'ui-serif', 'Georgia'],
+                    },
+                    colors: {
+                        'brand-teal': {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos customizados para o scrollbar do chat (opcional, mas profissional) */
+        #chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        #chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        #chat-messages::-webkit-scrollbar-thumb {
+            background: #cbd5e1; /* gray-300 */
+            border-radius: 10px;
+        }
+        #chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; /* gray-400 */
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased">
+
+    <!-- ===== Header / Navegação ===== -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-serif text-3xl font-bold text-brand-teal-700">BellaPele</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="text-gray-600 hover:text-brand-teal-600 transition duration-300">Home</a>
+                <a href="#servicos" class="text-gray-600 hover:text-brand-teal-600 transition duration-300">Serviços</a>
+                <a href="#sobre" class="text-gray-600 hover:text-brand-teal-600 transition duration-300">Sobre Nós</a>
+                <a href="#contato" class="text-gray-600 hover:text-brand-teal-600 transition duration-300">Contato</a>
+            </div>
+            <a href="#contato" class="bg-brand-teal-600 text-white px-5 py-2 rounded-full font-semibold hover:bg-brand-teal-700 transition duration-300 shadow-sm">
+                Agendar Agora
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===== Seção Hero ===== -->
+        <section id="hero" class="relative h-[85vh] min-h-[600px] flex items-center justify-center text-center text-white">
+            <!-- Imagem de Fundo (Placeholder) -->
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/E0EBEB/333?text=Ambiente+da+Cl%C3%ADnica+BellaPele');"></div>
+            <!-- Overlay Escuro -->
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            
+            <!-- Conteúdo do Hero -->
+            <div class="relative z-10 px-6">
+                <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight">
+                    Realce sua Beleza.
+                    <br>
+                    Cuide da sua Essência.
+                </h1>
+                <p class="text-xl md:text-2xl mt-4 max-w-2xl mx-auto font-light">
+                    Tratamentos faciais e corporais avançados, com tecnologia de ponta e cuidado humanizado.
+                </p>
+                <a href="#servicos" class="mt-8 inline-block bg-white text-brand-teal-700 px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                    Conheça nossos Tratamentos
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== Seção de Serviços ===== -->
+        <section id="servicos" class="py-24 bg-brand-teal-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="text-brand-teal-600 font-semibold">O QUE FAZEMOS</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mt-2">Nossos Tratamentos</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1: Harmonização Facial -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <!-- Icon SVG -->
+                        <svg class="w-12 h-12 text-brand-teal-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h.01M.01 10h.01M.01 14h.01M10 14h.01M10 18h.01M14 18h.01M18 14h.01M18 10h.01M18 6h.01M14 6h.01M10 6h.01M6 6h.01M6 10h.01M6 14h.01M6 18h.01M10 10h4v4h-4z"></path></svg>
+                        <h3 class="font-serif text-2xl font-bold mb-3">Harmonização Facial</h3>
+                        <p class="text-gray-600 mb-5">
+                            Realce seus traços naturais e promova o equilíbrio da face com preenchedores e bioestimuladores de última geração.
+                        </p>
+                        <a href="#" class="font-semibold text-brand-teal-600 hover:text-brand-teal-700">Saiba Mais &rarr;</a>
+                    </div>
+                    
+                    <!-- Card 2: Limpeza de Pele Ultra -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <!-- Icon SVG -->
+                        <svg class="w-12 h-12 text-brand-teal-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <h3 class="font-serif text-2xl font-bold mb-3">Limpeza de Pele Ultrassônica</h3>
+                        <p class="text-gray-600 mb-5">
+                            Uma limpeza profunda e indolor que remove impurezas, células mortas e cravos através de vibrações de alta frequência.
+                        </p>
+                        <a href="#" class="font-semibold text-brand-teal-600 hover:text-brand-teal-700">Saiba Mais &rarr;</a>
+                    </div>
+                    
+                    <!-- Card 3: Laser Corporal -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <!-- Icon SVG -->
+                        <svg class="w-12 h-12 text-brand-teal-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4M4 19h4M17 3v4M15 5h4M18 17v4M16 19h4M12 9a3 3 0 100 6 3 3 0 000-6z"></path></svg>
+                        <h3 class="font-serif text-2xl font-bold mb-3">Laser & Estrias</h3>
+                        <p class="text-gray-600 mb-5">
+                            Tecnologia de laser fracionado para tratamento de estrias, cicatrizes e rejuvenescimento da pele corporal, com resultados visíveis.
+                        </p>
+                        <a href="#" class="font-semibold text-brand-teal-600 hover:text-brand-teal-700">Saiba Mais &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Seção Sobre Nós ===== -->
+        <section id="sobre" class="py-24 bg-white">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                <!-- Imagem (Placeholder) -->
+                <div class="rounded-lg overflow-hidden shadow-2xl">
+                    <img src="https://placehold.co/800x700/D0E0E0/333?text=Dra.+Ana+Silva" alt="Profissional da clínica BellaPele" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Conteúdo de Texto -->
+                <div>
+                    <span class="text-brand-teal-600 font-semibold">SOBRE A BELLAPELE</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mt-2 mb-6">Cuidado e Tecnologia em Perfeita Harmonia.</h2>
+                    <p class="text-gray-600 text-lg mb-6">
+                        Fundada pela Dra. Ana Silva, a BellaPele nasceu do sonho de unir a mais alta tecnologia em tratamentos estéticos com um atendimento verdadeiramente humano e personalizado.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        Nossa missão é entender suas necessidades únicas e criar um plano de tratamento que não apenas realce sua beleza, mas que também eleve sua autoestima e bem-estar.
+                    </p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-brand-teal-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-700"><strong class="font-semibold">Equipe Especializada:</strong> Profissionais altamente qualificados e em constante atualização.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-brand-teal-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-700"><strong class="font-semibold">Tecnologia de Ponta:</strong> Equipamentos aprovados pela ANVISA e reconhecidos mundialmente.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-brand-teal-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-700"><strong class="font-semibold">Atendimento Personalizado:</strong> Cada plano de tratamento é 100% focado em você.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Seção de Depoimentos ===== -->
+        <section id="depoimentos" class="py-24 bg-brand-teal-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold">O que nossos pacientes dizem</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-gray-600 text-lg italic mb-6">
+                            "Transformador! A Dra. Ana e sua equipe são incrivelmente atenciosas. Sinto-me renovada não só por fora, mas por dentro. Recomendo de olhos fechados!"
+                        </p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/100x100/333/FFF?text=M" alt="Paciente Maria S." class="w-16 h-16 rounded-full object-cover">
+                            <div class="ml-4">
+                                <p class="font-bold text-lg">Maria S.</p>
+                                <p class="text-gray-500">Paciente de Harmonização Facial</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <p class="text-gray-600 text-lg italic mb-6">
+                            "A melhor limpeza de pele que já fiz. O ambiente é relaxante e a tecnologia ultrassônica não machuca nada. Virei cliente fiel."
+                        </p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/100x100/333/FFF?text=J" alt="Paciente Juliana P." class="w-16 h-16 rounded-full object-cover">
+                            <div class="ml-4">
+                                <p class="font-bold text-lg">Juliana P.</p>
+                                <p class="text-gray-500">Paciente de Limpeza de Pele</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Seção de Contato e Localização ===== -->
+        <section id="contato" class="py-24 bg-white">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16">
+                
+                <!-- Formulário -->
+                <div>
+                    <h2 class="font-serif text-4xl font-bold mb-6">Entre em Contato</h2>
+                    <p class="text-gray-600 mb-8">
+                        Preencha o formulário ou fale conosco pelo chat. Estamos prontos para tirar suas dúvidas.
+                    </p>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Seu Nome</label>
+                            <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-brand-teal-500 focus:border-brand-teal-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Seu E-mail</label>
+                            <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-brand-teal-500 focus:border-brand-teal-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Sua Mensagem</label>
+                            <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-brand-teal-500 focus:border-brand-teal-500"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-brand-teal-600 text-white px-6 py-3 rounded-md font-semibold text-lg hover:bg-brand-teal-700 transition duration-300">
+                                Enviar Mensagem
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Informações e Mapa -->
+                <div>
+                    <h2 class="font-serif text-4xl font-bold mb-6">Nossa Localização</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-brand-teal-600 mr-4 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <div>
+                                <h3 class="text-lg font-semibold">Endereço</h3>
+                                <p class="text-gray-600">Av. Paulista, 1234, 5º Andar<br>Bela Vista, São Paulo - SP, 01310-100</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-brand-teal-600 mr-4 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            <div>
+                                <h3 class="text-lg font-semibold">Telefone / WhatsApp</h3>
+                                <p class="text-gray-600">(11) 91234-5678</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-brand-teal-600 mr-4 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <div>
+                                <h3 class="text-lg font-semibold">E-mail</h3>
+                                <p class="text-gray-600">contato@bellapele.com.br</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mapa Incorporado -->
+                    <div class="mt-8 rounded-lg shadow-md overflow-hidden h-64">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.14569503461!2d-46.656534!3d-23.563095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da030131%3A0x9e3e3e0d6b6d0!2sAvenida%20Paulista%2C%201234%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1678886500000!5m2!1spt-BR!2sbr" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Rodapé ===== -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <!-- Coluna 1: Logo e Social -->
+            <div>
+                <a href="#" class="font-serif text-3xl font-bold text-white">BellaPele</a>
+                <p class="mt-4 text-gray-400">Realce sua beleza, cuide da sua essência.</p>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.669 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85C2.15 3.854 3.669 2.31 6.919 2.163c1.266-.058 1.646-.07 4.85-.07zm0-2.163C8.718 0 8.32 0 7.083.066 2.643.209 0.208 2.643.066 7.083 0 8.32 0 8.718 0 12s0 3.68.066 4.917c.143 4.44 2.478 6.874 6.917 7.017C8.32 24 8.718 24 12 24s3.68 0 4.917-.066c4.44-.143 6.874-2.478 7.017-6.917C24 15.68 24 15.282 24 12s0-3.68-.066-4.917c-.143-4.44-2.478-6.874-6.917-7.017C15.68 0 15.282 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm7.846-10.405a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"></path></svg></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-.429.734-.666 1.581-.666 2.474 0 2.115 1.076 3.984 2.713 5.078-.99-.03-1.916-.304-2.722-.75v.077c0 2.953 2.102 5.414 4.887 5.973-.51.139-1.046.213-1.598.213-.39 0-.771-.038-1.14-.104.775 2.42 3.023 4.185 5.68 4.234-2.087 1.638-4.72 2.616-7.58 2.616-.492 0-.978-.028-1.455-.086 2.7 1.732 5.909 2.75 9.348 2.75 11.21 0 17.362-9.29 17.362-17.362 0-.265-.006-.528-.018-.79A12.474 12.474 0 0024 4.557z"></path></svg></a>
+                </div>
+            </div>
+            <!-- Coluna 2: Links Rápidos -->
+            <div>
+                <h4 class="font-bold text-lg text-white mb-4">Tratamentos</h4>
+                <ul class="space-y-2">
+                    <li><a href="#servicos" class="text-gray-400 hover:text-white">Harmonização Facial</a></li>
+                    <li><a href="#servicos" class="text-gray-400 hover:text-white">Limpeza de Pele</a></li>
+                    <li><a href="#servicos" class="text-gray-400 hover:text-white">Laser Corporal</a></li>
+                    <li><a href="#servicos" class="text-gray-400 hover:text-white">Bioestimuladores</a></li>
+                </ul>
+            </div>
+            <!-- Coluna 3: Links da Clínica -->
+            <div>
+                <h4 class="font-bold text-lg text-white mb-4">Clínica</h4>
+                <ul class="space-y-2">
+                    <li><a href="#sobre" class="text-gray-400 hover:text-white">Sobre Nós</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Nossa Equipe</a></li>
+                    <li><a href="#contato" class="text-gray-400 hover:text-white">Contato</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                </ul>
+            </div>
+            <!-- Coluna 4: Contato -->
+            <div>
+                <h4 class="font-bold text-lg text-white mb-4">Entre em Contato</h4>
+                <address class="not-italic text-gray-400 space-y-2">
+                    <p>Av. Paulista, 1234, 5º Andar<br>São Paulo - SP</p>
+                    <p>(11) 91234-5678</p>
+                    <p>contato@bellapele.com.br</p>
+                </address>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center mt-10 pt-8 border-t border-gray-700">
+            <p class="text-gray-500">&copy; 2025 BellaPele Estética Avançada. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    <!-- ===== WIDGET DE CHAT (AQUI É A MÁGICA PARA O n8n) ===== -->
+    
+    <!-- O Botão Flutuante -->
+    <button id="chat-toggle" class="fixed bottom-6 right-6 bg-brand-teal-600 text-white p-4 rounded-full shadow-lg hover:bg-brand-teal-700 focus:outline-none focus:ring-2 focus:ring-brand-teal-500 focus:ring-offset-2 transition-transform transform hover:scale-110">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+    </button>
+
+    <!-- A Janela do Chat -->
+    <div id="chat-window" class="fixed bottom-24 right-6 w-80 md:w-96 bg-white rounded-lg shadow-2xl overflow-hidden transition-all duration-300 transform scale-95 opacity-0 hidden">
+        <!-- Header do Chat -->
+        <div class="bg-brand-teal-600 text-white p-4 flex justify-between items-center">
+            <h3 class="font-bold text-lg">Agendamento Online</h3>
+            <button id="chat-close" class="text-white hover:text-gray-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Mensagens -->
+        <div id="chat-messages" class="p-4 h-80 overflow-y-auto space-y-4">
+            <!-- Mensagem do Bot (Inicial) -->
+            <div class="flex">
+                <div class="bg-gray-100 p-3 rounded-lg rounded-bl-none max-w-xs">
+                    <p class="text-sm text-gray-700">Olá! 👋 Sou sua assistente virtual. Como posso ajudar com seu agendamento hoje?</p>
+                </div>
+            </div>
+            <!-- As mensagens do usuário e do bot serão adicionadas aqui -->
+        </div>
+        
+        <!-- Input de Texto -->
+        <div class="p-4 border-t flex">
+            <input type="text" id="chat-input" placeholder="Digite sua mensagem..." class="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-brand-teal-500">
+            <button id="chat-send" class="bg-brand-teal-600 text-white px-4 py-2 rounded-r-md hover:bg-brand-teal-700 focus:outline-none">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== Script do Chat (Simulado - PRONTO PARA O n8n) ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatToggle = document.getElementById('chat-toggle');
+            const chatWindow = document.getElementById('chat-window');
+            const chatClose = document.getElementById('chat-close');
+            const chatMessages = document.getElementById('chat-messages');
+            const chatInput = document.getElementById('chat-input');
+            const chatSend = document.getElementById('chat-send');
+
+            // Abrir/Fechar a janela
+            chatToggle.addEventListener('click', () => {
+                chatWindow.classList.toggle('hidden');
+                chatWindow.classList.toggle('opacity-0');
+                chatWindow.classList.toggle('scale-95');
+            });
+            chatClose.addEventListener('click', () => {
+                chatWindow.classList.add('hidden', 'opacity-0', 'scale-95');
+            });
+
+            // Enviar mensagem
+            chatSend.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            function sendMessage() {
+                const messageText = chatInput.value.trim();
+                if (messageText === '') return;
+
+                // 1. Adiciona a mensagem do usuário ao chat
+                addMessageToChat('user', messageText);
+                chatInput.value = '';
+
+                // 2. Mostra o indicador "digitando..."
+                showTypingIndicator();
+
+                // 3. Envia para o "n8n" (aqui está a simulação)
+                // Substitua a simulação pela chamada fetch real
+                sendToN8n(messageText);
+            }
+
+            function addMessageToChat(sender, text) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('flex', 'max-w-xs');
+                
+                let textElement = document.createElement('div');
+                textElement.classList.add('p-3', 'rounded-lg', 'text-sm');
+                textElement.innerText = text;
+
+                if (sender === 'user') {
+                    messageElement.classList.add('ml-auto', 'justify-end');
+                    textElement.classList.add('bg-brand-teal-600', 'text-white', 'rounded-br-none');
+                } else {
+                    messageElement.classList.add('mr-auto');
+                    textElement.classList.add('bg-gray-100', 'text-gray-700', 'rounded-bl-none');
+                }
+
+                messageElement.appendChild(textElement);
+                chatMessages.appendChild(messageElement);
+                
+                // Rola para o final
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function showTypingIndicator() {
+                const typingElement = document.createElement('div');
+                typingElement.id = 'typing-indicator';
+                typingElement.classList.add('flex', 'mr-auto');
+                typingElement.innerHTML = `
+                    <div class="bg-gray-100 p-3 rounded-lg rounded-bl-none max-w-xs">
+                        <p class="text-sm text-gray-700 italic">Digitando...</p>
+                    </div>
+                `;
+                chatMessages.appendChild(typingElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function removeTypingIndicator() {
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) {
+                    indicator.remove();
+                }
+            }
+
+            // ===================================================================
+            // AQUI É ONDE VOCÊ CONECTA O N8N, LEANDRO!
+            // ===================================================================
+            function sendToN8n(messageText) {
+                
+                // Descomente as linhas abaixo e substitua pela sua URL de PRODUÇÃO do n8n
+                /*
+                const WEBHOOK_URL = 'https://leandrocopola.app.n8n.cloud/webhook/clinic-receptionist';
+
+                fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: messageText })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    removeTypingIndicator();
+                    // Assumindo que seu n8n responde com: { "reply": "..." }
+                    if (data.reply) {
+                        addMessageToChat('bot', data.reply);
+                    } else {
+                        addMessageToChat('bot', 'Desculpe, tive um problema para processar sua resposta.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao conectar com o webhook:', error);
+                    removeTypingIndicator();
+                    addMessageToChat('bot', 'Estou com problemas de conexão. Tente novamente mais tarde.');
+                });
+                */
+
+                // ===================================================================
+                // INÍCIO DA SIMULAÇÃO (Apague isso quando for usar o fetch real)
+                // ===================================================================
+                console.log(`Enviando para o n8n (simulado): ${messageText}`);
+                
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    let botReply = 'Desculpe, não entendi. Você gostaria de agendar um horário?';
+                    
+                    const lowerMessage = messageText.toLowerCase();
+
+                    if (lowerMessage.includes('agendar') || lowerMessage.includes('horário')) {
+                        botReply = 'Ótimo! Para iniciarmos o agendamento, por favor, me informe seu nome completo e telefone WhatsApp.';
+                    } else if (lowerMessage.includes('oi') || lowerMessage.includes('ola')) {
+                        botReply = 'Olá! Bem-vindo(a) à BellaPele. Gostaria de agendar um horário ou saber mais sobre nossos serviços?';
+                    } else if (lowerMessage.includes('preço') || lowerMessage.includes('valor')) {
+                        botReply = 'Nossos valores variam por tratamento. Para qual serviço você gostaria de um orçamento? (Ex: Limpeza de Pele, Harmonização, etc.)';
+                    }
+
+                    addMessageToChat('bot', botReply);
+                }, 1500 + Math.random() * 500); // Simula o tempo de resposta da rede/IA
+                // ===================================================================
+                // FIM DA SIMULAÇÃO
+                // ===================================================================
+            }
+        });
+    </script>
+
+</body>
+</html>
